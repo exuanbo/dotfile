@@ -22,4 +22,4 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # doom emacs
-PATH="$HOME/.emacs.d/bin:$PATH"
+#PATH="$HOME/.emacs.d/bin:$PATH"

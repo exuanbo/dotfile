@@ -32,17 +32,19 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     (auto-completion :variables
-                      auto-completion-idle-delay 0.1
+   '((auto-completion :variables
+                      auto-completion-idle-delay 0
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t
                       :disabled-for org markdown)
 
-     syntax-checking
-     (spell-checking :variables enable-flyspell-auto-completion t)
-     lsp
+     (syntax-checking :variables syntax-checking-enable-by-default nil)
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     enable-flyspell-auto-completion t)
+
      ivy
+     lsp
      (c-c++ :variables c-c++-backend 'lsp-ccls)
      (python :variables python-backend 'lsp)
      (javascript :variables javascript-backend 'lsp)
@@ -60,11 +62,10 @@ This function should only modify configuration layer settings."
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/zsh")
 
-     neotree
+     treemacs
      git
      better-defaults
-     osx
-     )
+     osx)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -73,15 +74,27 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(
-                                      eterm-256color)
+   dotspacemacs-additional-packages
+   '(eterm-256color)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(
-                                    auto-complete)
+   dotspacemacs-excluded-packages
+   '(smooth-scrolling
+     clean-aindent-mode
+
+     ;; auto-completion layer
+     auto-complete
+     company-quickhelp
+     smartparens
+
+     ;; spell-checking layer
+     auto-dictionary
+
+     ;; colors layer
+     rainbow-identifiers)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -184,8 +197,7 @@ It should only modify the values of Spacemacs settings."
    ;; `recents' `bookmarks' `projects' `agenda' `todos'.
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+   dotspacemacs-startup-lists nil
 
    ;; True if the home buffer should respond to resize events. (default t)
    dotspacemacs-startup-buffer-responsive t
@@ -239,7 +251,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key "M-SPC"
+   dotspacemacs-emacs-leader-key "M-m"
 
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
@@ -293,7 +305,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-delay 0.1
 
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -311,7 +323,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
 
    ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
@@ -329,7 +341,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
    ;; borderless fullscreen. (default nil)
-   dotspacemacs-undecorated-at-startup t
+   dotspacemacs-undecorated-at-startup nil
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -355,7 +367,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
 
    ;; Control line numbers activation.
    ;; If set to `t', `relative' or `visual' then line numbers are enabled in all
@@ -393,7 +405,7 @@ It should only modify the values of Spacemacs settings."
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
-   dotspacemacs-highlight-delimiters 'all
+   dotspacemacs-highlight-delimiters 'current
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
@@ -450,7 +462,7 @@ It should only modify the values of Spacemacs settings."
    ;; indent handling like has been reported for `go-mode'.
    ;; If it does deactivate it here.
    ;; (default t)
-   dotspacemacs-use-clean-aindent-mode t
+   dotspacemacs-use-clean-aindent-mode nil
 
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
@@ -493,9 +505,9 @@ before packages are loaded."
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
-  (add-hook 'term-mode-hook #'eterm-256color-mode)
-
-  (setq neo-theme 'icons)
+  ;; 2-space indent
+  (setq-default indent-tabs-mode nil
+                default-tab-width 2)
 
   (setq-default evil-escape-key-sequence "jk"
                 evil-escape-delay 0.2)
@@ -508,16 +520,10 @@ before packages are loaded."
           org-html-head-include-default-style nil
           org-html-htmlize-output-type 'css))
 
-  (with-eval-after-load 'org-agenda
-    (require 'org-projectile)
-    (mapcar '(lambda (file)
-               (when (file-exists-p file)
-                 (push file org-agenda-files)))
-            (org-projectile-todo-files)))
+  (add-hook 'term-mode-hook 'eterm-256color-mode)
 
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-  (load custom-file 'no-error 'no-message)
-  )
+  (load custom-file 'no-error 'no-message))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

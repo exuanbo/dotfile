@@ -20,7 +20,6 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "JetBrains Mono" :size 16)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono")
       doom-unicode-font (font-spec :family "Source Han Sans"))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -34,7 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -56,6 +55,7 @@
 
 ;; ui
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
@@ -65,9 +65,6 @@
   ;; Global settings
   (setq doom-themes-enable-bold nil) ; if nil, bold is universally disabled
   (load-theme 'doom-one t)
-
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
 
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
@@ -91,9 +88,8 @@
 (setq-default evil-escape-key-sequence "jk"
               evil-escape-delay 0.2)
 
-;;(require 'company-lsp)
-;;(push 'company-lsp company-backends)
-;;(set-company-backend! 'company-lsp)
+;; company
+(setq company-idle-delay 0)
 
 ;; org html export
 (setq org-export-with-sub-superscripts nil

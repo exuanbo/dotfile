@@ -1,0 +1,50 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs #
+######################
+*.log
+
+# OS generated files #
+######################
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Mac crap #
+############
+.DS_Store
+.DS_Store?
+
+# Python #
+##########
+*.pyc
+
+# Node.js #
+###########
+node_modules
+#/dist
+.npm-debug.log
+
+# Unit Test / Coverage Reports #
+################################
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+venv/
+.python-version
+

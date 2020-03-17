@@ -52,7 +52,3 @@
 
 (package! gulp-task-runner
   :recipe (:host github :repo "NicolasPetton/gulp-task-runner"))
-
-(package! cmake-mode :disable t)
-
-(package! company-lsp)

@@ -19,7 +19,7 @@
        ;;japanese
 
        :completion
-       company           ; the ultimate code completion backend
+       (company +tng)    ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy
@@ -67,7 +67,7 @@
 
        :emacs
        dired             ; making dired pretty [functional]
-       ;;electric          ; smarter, keyword-based electric-indent
+       electric          ; smarter, keyword-based electric-indent
        ;;ibuffer           ; interactive buffer management
        vc                ; version-control and Emacs, sitting in a tree
 
@@ -179,4 +179,4 @@
 
        :config
        ;;literate
-       (default +bindings))
+       (default +bindings +smartparens))
