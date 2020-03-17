@@ -13,7 +13,7 @@ YS_VCS_PROMPT_CLEAN=" %{$fg[green]%}●"
 # Git short sha
 local git_sha='$(git_prompt_short_sha)'
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg_bold[red]%}("
-ZSH_THEME_GIT_PROMPT_SHA_AFTER=")%{$reset_color%}%{$fg_bold[white]%}]%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_SHA_AFTER=")%{$reset_color%}%{$fg_bold[white]%}]%{$reset_color%}"
 
 # Git info.
 local git_info='$(git_prompt_info)'
@@ -29,6 +29,6 @@ PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${git_info}\
-${git_sha} \
+${git_sha}\
 $exit_code
 %${ret_status}%{$reset_color%}"

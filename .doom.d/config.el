@@ -63,7 +63,7 @@
 (use-package doom-themes
   :config
   ;; Global settings
-  (setq doom-themes-enable-bold nil) ; if nil, bold is universally disabled
+  ;;(setq doom-themes-enable-bold nil) ; if nil, bold is universally disabled
   (load-theme 'doom-one t)
 
   ;; Enable custom neotree theme (all-the-icons must be installed!)
@@ -89,20 +89,36 @@
               evil-escape-delay 0.2)
 
 ;; company
-(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0)
 
-;; org html export
-(setq org-export-with-sub-superscripts nil
+;; lsp-mode
+(setq gc-cons-threshold 100000000
+      read-process-output-max (* 1024 1024))
+
+(setq lsp-prefer-capf t
+      lsp-idle-delay 0.500)
+
+(setq lsp-python-ms-executable
+      "~/repositories/python-language-server/output/bin/Release/osx-x64/publish/Microsoft.Python.LanguageServer")
+
+;; org
+(after! org
+  (set-face-attribute 'org-link nil
+                      :weight 'normal)
+  (set-face-attribute 'org-document-title nil
+                      :height 1.75
+                      :weight 'bold)
+  (set-face-attribute 'org-level-1 nil
+                      :height 1.25)
+  (setq org-startup-indented nil
+        org-adapt-indentation nil)
+  ;;(setq org-hide-emphasis-markers t)
+  (setq org-export-with-sub-superscripts nil
       org-html-doctype "html5"
       org-html-html5-fancy t
       org-html-head-include-default-style nil
-      org-html-htmlize-output-type 'css)
-
-(setq org-adapt-indentation nil)
-(setq org-hide-emphasis-markers t)
-
-(after! org
-  (setq org-startup-indented nil))
+      org-html-htmlize-output-type 'css))
 
 (after! evil-org
   (remove-hook 'org-tab-first-hook #'+org-cycle-only-current-subtree-h))

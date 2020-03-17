@@ -46,12 +46,14 @@ This function should only modify configuration layer settings."
      ivy
      lsp
      (c-c++ :variables c-c++-backend 'lsp-ccls)
-     (python :variables python-backend 'lsp)
+     (python :variables
+             python-backend 'lsp
+             python-lsp-server 'mspyls)
+
      (javascript :variables javascript-backend 'lsp)
      html
      emacs-lisp
      (org :variables
-          org-projectile-file "TODOs.org"
           org-want-todo-bindings t)
 
      latex
@@ -84,11 +86,11 @@ This function should only modify configuration layer settings."
    dotspacemacs-excluded-packages
    '(smooth-scrolling
      clean-aindent-mode
+     smartparens
 
      ;; auto-completion layer
      auto-complete
      company-quickhelp
-     smartparens
 
      ;; spell-checking layer
      auto-dictionary
@@ -117,7 +119,7 @@ It should only modify the values of Spacemacs settings."
    ;; to compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
    ;; (default nil)
-   dotspacemacs-enable-emacs-pdumper t
+   dotspacemacs-enable-emacs-pdumper nil
 
    ;; Name of executable file pointing to emacs 27+. This executable must be
    ;; in your PATH.
@@ -305,7 +307,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.1
+   dotspacemacs-which-key-delay 0.2
 
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -405,7 +407,7 @@ It should only modify the values of Spacemacs settings."
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
-   dotspacemacs-highlight-delimiters 'current
+   dotspacemacs-highlight-delimiters 'all
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
@@ -514,6 +516,7 @@ before packages are loaded."
 
   (with-eval-after-load 'org
     (setq org-startup-indented nil
+          org-adapt-indentation nil
           org-export-with-sub-superscripts nil
           org-html-doctype "html5"
           org-html-html5-fancy t
