@@ -31,7 +31,7 @@ Thumbs.db
 # Node.js #
 ###########
 node_modules
-#/dist
+#dist
 .npm-debug.log
 
 # Unit Test / Coverage Reports #
