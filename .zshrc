@@ -97,33 +97,12 @@ export LC_ALL=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config="/usr/bin/git --git-dir=/Users/xuanbo/.cfg/ --work-tree=/Users/xuanbo"
-alias rebak="~/script/repos-bak.sh"
+alias rebak="~/.repos-bak.sh"
 alias ip="curl -L tool.lu/ip"
+alias doom="~/.emacs.d/bin/doom"
 
 # mkdir and cd
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
-# nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# iterm2
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# miniconda
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/xuanbo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/xuanbo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/xuanbo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/xuanbo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-conda activate myenv
+source ~/.env.sh
 
