@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # nvm
@@ -24,6 +22,7 @@ export MONO_GAC_PREFIX="/usr/local"
 
 # homebrew llvm
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 

@@ -1,4 +1,4 @@
-source ~/.env.sh
+source /Users/xuanbo/.env.sh
 
 export ZSH="/Users/xuanbo/.oh-my-zsh"
 
@@ -22,6 +22,9 @@ alias config="/usr/bin/git --git-dir=/Users/xuanbo/.cfg/ --work-tree=/Users/xuan
 alias rebak="~/.repos-bak.sh"
 alias ip="curl -L tool.lu/ip"
 alias doom="~/.emacs.d/bin/doom"
+alias ni="npm i"
+alias nid="npm i -D"
+alias nus="npm uninstall --save"
 
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 

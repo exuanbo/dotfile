@@ -29,6 +29,6 @@ PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${git_info}\
-${git_sha}\
+${git_sha} \
 $exit_code
 %${ret_status}%{$reset_color%}"
