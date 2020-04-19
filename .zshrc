@@ -2,7 +2,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 export ZSH="/Users/xuanbo/.oh-my-zsh"
 
-ZSH_THEME="astro"
+ZSH_THEME="exuanbo"
 ENABLE_CORRECTION="true"
 
 plugins=(
@@ -13,19 +13,29 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-#
+# === lang ===
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# === alias ===
+
+# https://www.atlassian.com/git/tutorials/dotfiles
 alias config="/usr/bin/git --git-dir=/Users/xuanbo/.cfg/ --work-tree=/Users/xuanbo"
-alias rebak="/Users/xuanbo/.repos-bak.sh"
+
+alias rebak="/Users/xuanbo/.repo_bak.sh"
+
 alias ip="curl -sH 'Accept: application/json' ifconfig.co | node <<< \"var o = \$(cat); console.log(JSON.stringify(o, null, 2));\""
+
 alias doom="/Users/xuanbo/.emacs.d/bin/doom"
+
 alias git-cz="git cz"
+
 alias ni="npm i"
 alias nid="npm i -D"
 alias nus="npm uninstall --save"
+
+# === functions ===
 
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
@@ -55,6 +65,8 @@ function lazy_load_clean() {
         unalias ${i}
     done
 }
+
+# === env ===
 
 source /Users/xuanbo/.env.zsh
 
