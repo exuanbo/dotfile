@@ -12,3 +12,5 @@ rsync -arv --delete-after --delete-excluded --progress \
   --exclude-from='/Users/xuanbo/git/.gitignore_global' \
   --chmod='F-w' \
   "$src_dir" "$dest_dir"
+
+echo ""
