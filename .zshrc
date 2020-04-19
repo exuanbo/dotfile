@@ -21,7 +21,7 @@ export LC_ALL=en_US.UTF-8
 # === alias ===
 
 # https://www.atlassian.com/git/tutorials/dotfiles
-alias config="/usr/bin/git --git-dir=/Users/xuanbo/.cfg/ --work-tree=/Users/xuanbo"
+alias dot="/usr/bin/git --git-dir=/Users/xuanbo/.cfg/ --work-tree=/Users/xuanbo"
 
 alias rebak="/Users/xuanbo/.repo_bak.sh"
 
