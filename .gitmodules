@@ -1,0 +1,3 @@
+[submodule "emacs/.doom.d"]
+	path = emacs/.doom.d
+	url = git@github.com:exuanbo/.doom.d.git
