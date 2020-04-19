@@ -9,6 +9,6 @@ dest_dir="$HOME/Dropbox/repositories/"
 # run the sync
 rsync -arv --delete-after --delete-excluded --progress \
   --filter='dir-merge,- .gitignore' \
-  --exclude-from='/Users/xuanbo/.gitignore_global' \
+  --exclude-from='/Users/xuanbo/git/.gitignore_global' \
   --chmod='F-w' \
   "$src_dir" "$dest_dir"
