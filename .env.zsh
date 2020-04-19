@@ -1,9 +1,10 @@
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
 # nvm
+function load_nvm() {
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" ||   printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+lazy_load load_nvm nvm node npm npx vue git-cz jsdoc np npm-check stylelint typescript-language-server css-languageserver html-languageserver
 
 # homebrew openssl
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -30,14 +31,19 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:   $PATH"
 
 # homebrew rbenv
+function load_rbenv {
 # for ruby-build
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # load rbenv automatically
 eval "$(rbenv init -)"
+}
+lazy_load load_rbenv ruby gem
 
 # iterm2
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# conda
+function load_conda {
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/xuanbo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -51,6 +57,8 @@ else
     fi
 fi
 unset __conda_setup
-conda activate myenv
 # <<< conda initialize <<<
+conda activate myenv
+}
+lazy_load load_conda conda python python3 pip pip3
 
