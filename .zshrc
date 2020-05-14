@@ -7,6 +7,11 @@ ENABLE_CORRECTION="true"
 
 plugins=(
   git
+  brew
+  extract
+  npm
+  osx
+  vscode
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
@@ -34,6 +39,8 @@ alias git-cz="git cz"
 alias ni="npm i"
 alias nid="npm i -D"
 alias nus="npm uninstall --save"
+
+alias proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891"
 
 # === functions ===
 

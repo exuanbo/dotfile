@@ -4,7 +4,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" ||   
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
-lazy_load load_nvm nvm node npm npx vue git-cz jsdoc np npm-check stylelint typescript-language-server css-languageserver html-languageserver
+lazy_load load_nvm nvm node npm npx vue auto-changelog git-cz depcheck jsdoc ncu np stylelint typescript-language-server css-languageserver html-languageserver
 
 # homebrew openssl
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -23,7 +23,7 @@ export MONO_GAC_PREFIX="/usr/local"
 
 # homebrew llvm
 export PATH="/usr/local/opt/llvm/bin:$PATH"
-LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
