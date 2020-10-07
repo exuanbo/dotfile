@@ -40,6 +40,9 @@ alias ni="npm i"
 alias nid="npm i -D"
 alias nus="npm uninstall --save"
 
+alias ya="yarn add"
+alias yad="yarn add -D"
+
 alias proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891"
 
 # === functions ===
@@ -76,4 +79,3 @@ function lazy_load_clean() {
 # === env ===
 
 source /Users/xuanbo/.env.zsh
-

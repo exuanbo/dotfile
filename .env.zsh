@@ -1,10 +1,10 @@
 # nvm
-function load_nvm() {
+function load_nvm {
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" ||   printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 }
-lazy_load load_nvm nvm node npm npx vue auto-changelog git-cz depcheck jsdoc ncu np stylelint typescript-language-server css-languageserver html-languageserver
+load_nvm
 
 # homebrew openssl
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
