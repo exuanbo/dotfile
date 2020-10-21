@@ -1,16 +1,13 @@
-# nvm
-function load_nvm {
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" ||   printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-}
-load_nvm
-
 # homebrew openssl
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# n
+export N_PREFIX="$HOME/n"
+export N_PRESERVE_NPM=1
+export PATH="$N_PREFIX/bin:$PATH"
 
 # rust
 export PATH="/Users/xuanbo/.cargo/bin:$PATH"
@@ -30,20 +27,15 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 # haskell ghcup
 export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:$PATH"
 
-# homebrew rbenv
-function load_rbenv {
+# rbenv
 # for ruby-build
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 # load rbenv automatically
 eval "$(rbenv init -)"
-}
-lazy_load load_rbenv ruby gem
 
 # iterm2
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# conda
-function load_conda {
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/xuanbo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -59,6 +51,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 conda activate myenv
-}
-lazy_load load_conda conda python python3 pip pip3
 
