@@ -1,4 +1,4 @@
-# homebrew openssl
+# openssl@1.1
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
@@ -18,23 +18,33 @@ export PATH="/Users/xuanbo/.cargo/bin:$PATH"
 # mono
 export MONO_GAC_PREFIX="/usr/local"
 
-# homebrew llvm
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-
 # haskell ghcup
 export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:$PATH"
 
 # rbenv
+export RBENV_VERSION="2.7.2"
 # for ruby-build
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 # load rbenv automatically
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
+export PATH="/Users/xuanbo/.rbenv/shims:${PATH}"
+export RBENV_SHELL=zsh
+source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh'
+command rbenv rehash 2>/dev/null
+rbenv() {
+  local command
+  command="${1:-}"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
 
-# iterm2
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+  case "$command" in
+  rehash|shell)
+    eval "$(rbenv "sh-$command" "$@")";;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -51,4 +61,16 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 conda activate myenv
+
+# For the system Java wrappers to find this JDK, symlink it with
+#   sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+#
+# openjdk is keg-only, which means it was not symlinked into /usr/local,
+# because it shadows the macOS `java` wrapper.
+#
+# If you need to have openjdk first in your PATH run:
+#   echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+#
+# For compilers to find openjdk you may need to set:
+#   export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
