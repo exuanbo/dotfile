@@ -21,12 +21,11 @@ export MONO_GAC_PREFIX="/usr/local"
 # haskell ghcup
 export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:$PATH"
 
-# rbenv
-export RBENV_VERSION="2.7.2"
-# for ruby-build
+# ruby-build
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-# load rbenv automatically
-#eval "$(rbenv init -)"
+
+# rbenv
+# eval "$(rbenv init -)"
 export PATH="/Users/xuanbo/.rbenv/shims:${PATH}"
 export RBENV_SHELL=zsh
 source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh'
@@ -46,8 +45,7 @@ rbenv() {
   esac
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+# conda init
 __conda_setup="$('/Users/xuanbo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -59,18 +57,6 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
-conda activate myenv
 
-# For the system Java wrappers to find this JDK, symlink it with
-#   sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-#
-# openjdk is keg-only, which means it was not symlinked into /usr/local,
-# because it shadows the macOS `java` wrapper.
-#
-# If you need to have openjdk first in your PATH run:
-#   echo 'export PATH="/usr/local/opt/openjdk/bin:$PATH"' >> ~/.zshrc
-#
-# For compilers to find openjdk you may need to set:
-#   export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+conda activate myenv
 

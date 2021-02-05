@@ -42,6 +42,7 @@ alias ya="yarn add -E"
 alias yad="yarn add -D -E"
 alias yr="yarn remove"
 alias yf="rm -rf node_modules yarn.lock && yarn"
+alias yt="yarn test"
 
 alias proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891"
 
