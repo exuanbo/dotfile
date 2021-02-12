@@ -10,7 +10,7 @@ export N_PRESERVE_NPM=1
 export PATH="$N_PREFIX/bin:$PATH"
 
 # rust
-export PATH="/Users/xuanbo/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # homebrew python
 #export PATH="/usr/local/opt/python/libexec/bin:$PATH"
@@ -26,7 +26,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # rbenv
 # eval "$(rbenv init -)"
-export PATH="/Users/xuanbo/.rbenv/shims:${PATH}"
+export PATH="$HOME/.rbenv/shims:${PATH}"
 export RBENV_SHELL=zsh
 source '/usr/local/Cellar/rbenv/1.1.2/libexec/../completions/rbenv.zsh'
 command rbenv rehash 2>/dev/null
@@ -46,14 +46,14 @@ rbenv() {
 }
 
 # conda init
-__conda_setup="$('/Users/xuanbo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/xuanbo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/xuanbo/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/xuanbo/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

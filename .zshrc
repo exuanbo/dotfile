@@ -1,6 +1,6 @@
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-export ZSH="/Users/xuanbo/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="exuanbo"
 
@@ -94,5 +94,5 @@ function lazy_load_clean() {
 
 # === env ===
 
-source /Users/xuanbo/.env.zsh
+source $HOME/.setup_env.zsh
 
