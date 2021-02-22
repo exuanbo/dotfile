@@ -12,9 +12,6 @@ export PATH="$N_PREFIX/bin:$PATH"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# homebrew python
-#export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-
 # mono
 export MONO_GAC_PREFIX="/usr/local"
 
@@ -57,6 +54,5 @@ else
     fi
 fi
 unset __conda_setup
-
 conda activate myenv
 

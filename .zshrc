@@ -26,13 +26,13 @@ export LC_ALL=en_US.UTF-8
 alias git-init="rm -rf .git && git init"
 
 # https://www.atlassian.com/git/tutorials/dotfiles
-alias dot="/usr/bin/git --git-dir=/Users/xuanbo/.cfg/ --work-tree=/Users/xuanbo"
+alias dot="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
-alias rebak="/Users/xuanbo/.repo_bak.sh"
+alias repo-bak="$HOME/.repo_bak.sh"
 
 alias ip="curl -sH 'Accept: application/json' ifconfig.co | node <<< \"var o = \$(cat); console.log(JSON.stringify(o, null, 2));\""
 
-alias doom="/Users/xuanbo/.emacs.d/bin/doom"
+alias doom="$HOME/.emacs.d/bin/doom"
 
 alias ni="npm i --save-exact"
 alias nid="npm i -D --save-exact"
@@ -58,7 +58,7 @@ function gccd() {
     cd $(basename $1 .git)
 }
 
-function ts_starter() {
+function ts-starter() {
     git clone https://github.com/exuanbo/ts-starter.git $1
     cd $1
     rm -rf .git
