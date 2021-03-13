@@ -37,14 +37,13 @@ alias doom="$HOME/.emacs.d/bin/doom"
 alias ni="npm i --save-exact"
 alias nid="npm i -D --save-exact"
 alias nus="npm uninstall --save"
+alias nt="npm test"
 
 alias ya="yarn add -E"
 alias yad="yarn add -D -E"
 alias yr="yarn remove"
 alias yf="rm -rf node_modules yarn.lock && yarn"
 alias yt="yarn test"
-
-alias proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891"
 
 # === functions ===
 
@@ -94,5 +93,5 @@ function lazy_load_clean() {
 
 # === env ===
 
-source $HOME/.setup_env.zsh
+source $HOME/.env.sh
 

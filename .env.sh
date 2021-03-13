@@ -16,7 +16,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export MONO_GAC_PREFIX="/usr/local"
 
 # haskell ghcup
-export PATH="$HOME/.cabal/bin:${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
 # ruby-build
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"

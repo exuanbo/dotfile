@@ -1,12 +1,12 @@
 [user]
-  name = exuanbo
-  email = exuanbo@protonmail.com
+    name = exuanbo
+    email = exuanbo@protonmail.com
+
 [core]
-  excludesfile = /Users/xuanbo/git/.gitignore_global
-  hooksPath = /Users/xuanbo/git/hooks
+    excludesfile = ~/git/.gitignore_global
+    hooksPath = ~/git/hooks
+    ignorecase = false
+
 [commit]
-  template = /Users/xuanbo/git/git_commit_template
-#[http]
-#  proxy = http://127.0.0.1:7890
-#[https]
-#  proxy = http://127.0.0.1:7890
+    template = ~/git/git_commit_template
+

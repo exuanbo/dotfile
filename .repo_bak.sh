@@ -1,6 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
-set -e # always immediately exit upon error
+# always immediately exit upon error
+set -e
 
 # directory config. ending slashes are important!
 src_dir="$HOME/repositories/"
@@ -13,4 +14,5 @@ rsync -arv --delete-after --delete-excluded --progress \
   --chmod="F-w" \
   "$src_dir" "$dest_dir"
 
-echo ""
+echo
+
