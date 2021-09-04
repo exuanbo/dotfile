@@ -13,6 +13,3 @@ rsync -arv --delete-after --delete-excluded --progress \
   --exclude-from="$HOME/git/.gitignore_global" \
   --chmod="F-w" \
   "$src_dir" "$dest_dir"
-
-echo
-

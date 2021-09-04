@@ -4,6 +4,9 @@ export MONO_GAC_PREFIX="/usr/local"
 # haskell ghcup
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 
+# openjdk
+export JAVA_HOME="$(brew --prefix openjdk)"
+
 # node n
 export N_PREFIX="$HOME/n"
 export N_PRESERVE_NPM=1
