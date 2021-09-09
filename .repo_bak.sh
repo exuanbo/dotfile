@@ -8,8 +8,9 @@ src_dir="$HOME/repositories/"
 dest_dir="$HOME/Dropbox/repositories/"
 
 # run the sync
-rsync -arv --delete-after --delete-excluded --progress \
-  --filter="dir-merge,- .gitignore" \
+rsync -arv --delete-after --delete-excluded \
+  --filter="dir-merge, - .gitignore" \
   --exclude-from="$HOME/git/.gitignore_global" \
   --chmod="F-w" \
   "$src_dir" "$dest_dir"
+
