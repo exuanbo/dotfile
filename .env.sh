@@ -1,3 +1,5 @@
+export HOMEBREW_NO_ANALYTICS=1
+
 # csharp mono
 export MONO_GAC_PREFIX="/usr/local"
 
