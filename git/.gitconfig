@@ -1,0 +1,19 @@
+[user]
+    name = exuanbo
+    email = exuanbo@protonmail.com
+    signingkey = 9144950EFC4835F6
+
+[core]
+    ignorecase = false
+    excludesfile = ~/git/.gitignore_global
+    hooksPath = ~/git/hooks
+
+[commit]
+    gpgsign = true
+    template = ~/git/git_commit_template
+
+[tag]
+    gpgsign = true
+
+[push]
+    followTags = true

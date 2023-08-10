@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+$HOME/.repo_bak.sh > /dev/null
+
